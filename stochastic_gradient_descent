@@ -1,0 +1,20 @@
+import numpy as np
+X = 2 * np.random.rand(100, 1)  
+Y = 4 + 3 * X[:, 0] + np.random.randn(100) 
+
+def stochastic_gradient_descent(X, y, learning_rate=0.001, n_iterations=10000):
+    m = len(y)
+    theta = np.array([3000.0, -0.1]) 
+    for iteration in range(n_iterations):
+        random_index = np.random.randint(m)
+        xi = np.array([1, X[random_index, 0]]) 
+        yi = y[random_index]
+
+        prediction = np.dot(theta, xi)
+        error = prediction - yi
+        gradient = error * xi
+        theta = theta - learning_rate * gradient
+    return theta
+
+theta_gd = stochastic_gradient_descent(X, Y)
+print("\nStochastic Gradient descent result (theta):", theta_gd)
