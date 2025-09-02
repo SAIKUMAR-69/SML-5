@@ -25,8 +25,9 @@ coefficient = fitted_model.params[1]
 print(intercent)
 print(coefficient)
 
-import numpy as np
+------------------------------------------------------------------------------------------------------------------------------------------
 
+import numpy as np
 def gradient(X, Y, initial_learning_rate=0.01, decay_rate=0.01, n_iterations=1000):
     m = len(Y)
     theta = np.random.randn(X.shape[1])  
